@@ -1,5 +1,6 @@
 import pygame
 from pygame.locals import *
+import time
 
 class Snake:
     def __init__(self, parent_screen):
@@ -12,6 +13,9 @@ class Snake:
         self.parent_screen.fill((110,110,5))
         self.parent_screen.blit(self.block, (self.x, self.y))
         pygame.display.flip()
+    
+    def walk(self):
+        
     
     def move_left(self):
         self.x -= 10
@@ -51,6 +55,7 @@ class Game:
                         self.snake.move_right()
                 elif event.type == QUIT:
                     running = False
+            self.snake.walk()
 
 
 if __name__ == "__main__":
