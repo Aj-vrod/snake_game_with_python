@@ -9,7 +9,9 @@ class Snake:
         self.y = 100
     
     def draw(self):
+        self.surface.fill((110,110,5))
         self.parent_screen.blit(self.block, (self.x, self.y))
+        pygame.display.flip()
 
 class Game:
     def __init__(self):
@@ -23,19 +25,9 @@ class Game:
         pass
 
 
-def draw_block():
-    surface.fill((110,110,5))
-    surface.blit(block, (block_x, block_y))
-    pygame.display.flip()
-
 if __name__ == "__main__":
-    
-
-    
-    
-
-    
-    pygame.display.flip()
+    game = Game()
+    game.run()
 
     running = True
     while running:
