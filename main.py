@@ -24,6 +24,16 @@ if __name__ == "__main__":
                 if event.key == K_ESCAPE:
                     running = False
                 if event.key == K_UP:
-                    pass
+                    block_y -= 10
+                    draw_block()
+                if event.key == K_DOWN:
+                    block_y += 10
+                    draw_block()
+                if event.key == K_LEFT:
+                    block_x -= 10
+                    draw_block()
+                if event.key == K_RIGHT:
+                    block_x += 10
+                    draw_block()
             elif event.type == QUIT:
                 running = False
