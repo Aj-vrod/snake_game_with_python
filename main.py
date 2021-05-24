@@ -9,7 +9,7 @@ class Snake:
         self.y = 100
     
     def draw(self):
-        self.surface.fill((110,110,5))
+        self.parent_screen.fill((110,110,5))
         self.parent_screen.blit(self.block, (self.x, self.y))
         pygame.display.flip()
     
@@ -32,7 +32,7 @@ class Game:
         self.surface = pygame.display.set_mode((1000, 500))
         self.surface.fill((110,110,5))
         self.snake = Snake(self.surface)
-        self.snake.draw
+        self.snake.draw()
     
     def run(self):
         running = True
