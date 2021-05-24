@@ -16,6 +16,15 @@ class Snake:
     def move_left(self):
         self.x -= 10
         self.draw()
+    def move_right(self):
+        self.x += 10
+        self.draw()
+    def move_up(self):
+        self.y -= 10
+        self.draw()
+    def move_down(self):
+        self.y += 10
+        self.draw()
 
 class Game:
     def __init__(self):
