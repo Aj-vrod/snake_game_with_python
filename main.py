@@ -6,8 +6,8 @@ if __name__ == "__main__":
 
     surface = pygame.display.set_mode((500, 500))
     surface.fill((255, 255, 255))
-    block = pygame.image.load("resources/block.png").convert()
-    surface.blit(block, (500,500))
+    block = pygame.image.load("resources/block.jpg").convert()
+    surface.blit(block, (100,100))
     pygame.display.flip()
 
     running = True
