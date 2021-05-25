@@ -3,10 +3,18 @@ from pygame.locals import *
 import time
 
 SIZE = 40
+
+class Apple:
+    def __init__(self, parent_screen):
+        self.image = pygame.image.load("resources/apple.jpg").convert()
+        self.parent_screen = parent_screen
+        self.x = 120
+        self.y = 120
+
 class Snake:
-    def __init__(self, surface, length):
+    def __init__(self, parent_screen, length):
         self.length = length
-        self.parent_screen = surface
+        self.parent_screen = parent_screen
         self.block = pygame.image.load("resources/block.jpg").convert()
         self.x = [SIZE] * length
         self.y = [SIZE] * length
