@@ -44,6 +44,7 @@ class Snake:
         if self.direction == 'right':
             self.x[0] += SIZE
         self.draw()
+        
     
     def move_left(self):
         self.direction = 'left'
@@ -61,6 +62,8 @@ class Game:
         self.surface.fill((110,110,5))
         self.snake = Snake(self.surface, 6)
         self.snake.draw()
+        self.apple = Apple(self.surface)
+        self.apple.draw()
     
     def run(self):
         running = True
@@ -80,6 +83,8 @@ class Game:
                 elif event.type == QUIT:
                     running = False
             self.snake.walk()
+            self.apple.draw()
+
             time.sleep(0.3)
 
 
