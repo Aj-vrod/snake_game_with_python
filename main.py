@@ -8,13 +8,14 @@ class Snake:
         self.length = length
         self.parent_screen = surface
         self.block = pygame.image.load("resources/block.jpg").convert()
-        self.x = [40] * self.length
-        self.y = [40] * self.length
+        self.x = [SIZE] * length
+        self.y = [SIZE] * length
         self.direction = 'down'
     
     def draw(self):
         self.parent_screen.fill((110,110,5))
-        self.parent_screen.blit(self.block, (self.x, self.y))
+        for i in range(self.length):
+            self.parent_screen.blit(self.block, (self.x[i], self.y[i]))
         pygame.display.flip()
     
     def walk(self):
@@ -42,7 +43,7 @@ class Game:
         pygame.init()
         self.surface = pygame.display.set_mode((1000, 500))
         self.surface.fill((110,110,5))
-        self.snake = Snake(self.surface)
+        self.snake = Snake(self.surface, 2)
         self.snake.draw()
     
     def run(self):
