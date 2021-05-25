@@ -28,6 +28,11 @@ class Snake:
         self.x = [SIZE] * length
         self.y = [SIZE] * length
         self.direction = 'down'
+
+    def increase_length(self):
+        self.length += 1
+        self.x.append(-1)
+        self.y.append(-1)
     
     def draw(self):
         self.parent_screen.fill((110,110,5))
@@ -65,7 +70,7 @@ class Game:
         pygame.init()
         self.surface = pygame.display.set_mode((1000, 800))
         self.surface.fill((110,110,5))
-        self.snake = Snake(self.surface, 6)
+        self.snake = Snake(self.surface, 1)
         self.snake.draw()
         self.apple = Apple(self.surface)
         self.apple.draw()
@@ -80,6 +85,7 @@ class Game:
         self.apple.draw()
 
         if self.is_collision(self.snake.x[0], self.snake.y[0], self.apple.x, self.apple.y):
+            self.snake.increase_length()
             self.apple.move()
 
     def run(self):
