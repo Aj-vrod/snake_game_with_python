@@ -19,14 +19,18 @@ class Snake:
         pygame.display.flip()
     
     def walk(self):
+        for i in range(self.length - 1, 0 , -1):
+            self.x[i] = self.x[i - 1]
+            self.y[i] = self.y[i - 1]
+
         if self.direction == 'down':
-            self.y += 10
+            self.y[0] += SIZE
         if self.direction == 'up':
-            self.y -= 10
+            self.y[0] -= SIZE
         if self.direction == 'left':
-            self.x -= 10
+            self.x[0] -= SIZE
         if self.direction == 'right':
-            self.x += 10
+            self.x[0] += SIZE
         self.draw()
     
     def move_left(self):
