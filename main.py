@@ -2,12 +2,14 @@ import pygame
 from pygame.locals import *
 import time
 
+SIZE = 40
 class Snake:
-    def __init__(self, parent_screen):
-        self.parent_screen = parent_screen
+    def __init__(self, surface, length):
+        self.length = length
+        self.parent_screen = surface
         self.block = pygame.image.load("resources/block.jpg").convert()
-        self.x = 100
-        self.y = 100
+        self.x = [40] * self.length
+        self.y = [40] * self.length
         self.direction = 'down'
     
     def draw(self):
