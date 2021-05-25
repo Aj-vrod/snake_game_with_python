@@ -65,6 +65,18 @@ class Game:
         self.apple = Apple(self.surface)
         self.apple.draw()
     
+    def is_collision(self, x1, y1, x2, y2):
+        if x1 >= x2 + SIZE and x1 <= x2 + SIZE:
+            if y1 >= y2 and y1 <= y2 + SIZE:
+                return True
+    
+    def play(self):
+        self.snake.walk()
+        self.apple.draw()
+
+        if self.is_collision(self.snake.x[0], self.snake.y[0], self.apple.x, self.apple.y):
+            print("Collision occurred")
+
     def run(self):
         running = True
         while running:
@@ -82,10 +94,9 @@ class Game:
                         self.snake.move_right()
                 elif event.type == QUIT:
                     running = False
-            self.snake.walk()
-            self.apple.draw()
+            self.play()
 
-            time.sleep(0.3)
+            time.sleep(0.2)
 
 
 if __name__ == "__main__":
