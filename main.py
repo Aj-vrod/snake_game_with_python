@@ -45,9 +45,9 @@ class Snake:
 class Game:
     def __init__(self):
         pygame.init()
-        self.surface = pygame.display.set_mode((1000, 500))
+        self.surface = pygame.display.set_mode((1000, 800))
         self.surface.fill((110,110,5))
-        self.snake = Snake(self.surface, 2)
+        self.snake = Snake(self.surface, 6)
         self.snake.draw()
     
     def run(self):
@@ -68,7 +68,7 @@ class Game:
                 elif event.type == QUIT:
                     running = False
             self.snake.walk()
-            time.sleep(0.2)
+            time.sleep(0.3)
 
 
 if __name__ == "__main__":
