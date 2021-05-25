@@ -76,9 +76,10 @@ class Game:
         self.apple.draw()
     
     def is_collision(self, x1, y1, x2, y2):
-        if x1 >= x2 + SIZE and x1 < x2 + SIZE:
+        if x1 >= x2 and x1 < x2 + SIZE:
             if y1 >= y2 and y1 < y2 + SIZE:
                 return True
+
     
     def play(self):
         self.snake.walk()
