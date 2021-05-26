@@ -71,7 +71,7 @@ class Game:
         pygame.init()
         self.surface = pygame.display.set_mode((1000, 800))
         self.surface.fill((110,110,5))
-        self.snake = Snake(self.surface, 6)
+        self.snake = Snake(self.surface, 1)
         self.snake.draw()
         self.apple = Apple(self.surface)
         self.apple.draw()
@@ -112,6 +112,10 @@ class Game:
         self.surface.blit(line2, (200,350))
         pygame.display.flip()
 
+    def reset(self):
+        self.snake = Snake(self.surface, 1)
+        self.apple = Apple(self.surface)
+
     def run(self):
         running = True
         pause = False
@@ -140,6 +144,7 @@ class Game:
             except Exception as e:
                 self.show_game_over()
                 pause = True
+                self.reset()
 
             time.sleep(0.2)
 
