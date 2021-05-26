@@ -69,6 +69,9 @@ class Snake:
 class Game:
     def __init__(self):
         pygame.init()
+        pygame.display.set_caption("Snake and Apple Game")
+        pygame.mixer.init()
+        self.play_background_music()
         self.surface = pygame.display.set_mode((1000, 800))
         self.surface.fill((110,110,5))
         self.snake = Snake(self.surface, 1)
@@ -82,6 +85,10 @@ class Game:
         if x1 >= x2 and x1 < x2 + SIZE:
             if y1 >= y2 and y1 < y2 + SIZE:
                 return True
+
+    def play_background_music(self):
+        pygame.mixer.music.load("resources/bg_music_1.mp3")
+        pygame.mixer.music.play()
 
     def play_sound(self, resource):
         sound = pygame.mixer.Sound(f"resources/{resource}")
