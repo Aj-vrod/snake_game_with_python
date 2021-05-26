@@ -89,8 +89,8 @@ class Game:
 
         # snake colliding with itself
         for i in range(3, self.snake.length):
-            if self.is_collision(self.snake.x[0], self.snake.y[0], self.snake.x[i], self.snake.y[0]):
-
+            if self.is_collision(self.snake.x[0], self.snake.y[0], self.snake.x[i], self.snake.y[i]):
+                raise "Game Over"
 
         # snake colliding with apple
         if self.is_collision(self.snake.x[0], self.snake.y[0], self.apple.x, self.apple.y):
@@ -119,7 +119,10 @@ class Game:
                         self.snake.move_right()
                 elif event.type == QUIT:
                     running = False
-            self.play()
+            try:
+                self.play()
+            except Exception as e:
+                self.show_game_over()
 
             time.sleep(0.2)
 
