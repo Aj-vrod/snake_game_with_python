@@ -75,6 +75,8 @@ class Game:
         self.snake.draw()
         self.apple = Apple(self.surface)
         self.apple.draw()
+
+        pygame.mixer.init()
     
     def is_collision(self, x1, y1, x2, y2):
         if x1 >= x2 and x1 < x2 + SIZE:
@@ -93,8 +95,10 @@ class Game:
             if self.is_collision(self.snake.x[0], self.snake.y[0], self.snake.x[i], self.snake.y[i]):
                 raise "Game Over"
 
-        # snake colliding with apple
+        # snake eating apple
         if self.is_collision(self.snake.x[0], self.snake.y[0], self.apple.x, self.apple.y):
+            eat = pygame.mixer.Sound("resources/1_snake_game_resources_ding.mp3")
+            pygame.mixer.Sound.play(eat)
             self.snake.increase_length()
             self.apple.move()
     
