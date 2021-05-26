@@ -71,7 +71,7 @@ class Game:
         pygame.init()
         self.surface = pygame.display.set_mode((1000, 800))
         self.surface.fill((110,110,5))
-        self.snake = Snake(self.surface, 1)
+        self.snake = Snake(self.surface, 6)
         self.snake.draw()
         self.apple = Apple(self.surface)
         self.apple.draw()
@@ -109,30 +109,37 @@ class Game:
         line1 = font.render(f"Game is over! Your score is {self.snake.length}", True, (255, 255, 255))
         self.surface.blit(line1, (200,300))
         line2 = font.render("To play again press Enter. To exit press Escape!", True, (255, 255, 255))
-        self.surface.blit(line2, (200,300))
+        self.surface.blit(line2, (200,350))
         pygame.display.flip()
 
     def run(self):
         running = True
+        pause = False
         while running:
             for event in pygame.event.get():
                 if event.type == KEYDOWN:
                     if event.key == K_ESCAPE:
                         running = False
-                    if event.key == K_UP:
-                        self.snake.move_up()
-                    if event.key == K_DOWN:
-                        self.snake.move_down()
-                    if event.key == K_LEFT:
-                        self.snake.move_left()
-                    if event.key == K_RIGHT:
-                        self.snake.move_right()
+                    if event.key == K_RETURN:
+                        pause = False
+                    if not pause:
+                        if event.key == K_UP:
+                            self.snake.move_up()
+                        if event.key == K_DOWN:
+                            self.snake.move_down()
+                        if event.key == K_LEFT:
+                            self.snake.move_left()
+                        if event.key == K_RIGHT:
+                            self.snake.move_right()
+
                 elif event.type == QUIT:
                     running = False
             try:
-                self.play()
+                if not pause:
+                    self.play()
             except Exception as e:
                 self.show_game_over()
+                pause = True
 
             time.sleep(0.2)
 
