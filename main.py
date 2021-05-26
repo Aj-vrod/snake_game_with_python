@@ -109,6 +109,8 @@ class Game:
         line1 = font.render(f"Game is over! Your score is {self.snake.length}", True, (255, 255, 255))
         self.surface.blit(line1, (200,300))
         line2 = font.render("To play again press Enter. To exit press Escape!", True, (255, 255, 255))
+        self.surface.blit(line2, (200,300))
+        pygame.display.flip()
 
     def run(self):
         running = True
