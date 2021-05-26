@@ -4,7 +4,6 @@ import time
 import random
 
 SIZE = 40
-BACKGROUND_COLOR = (110, 110, 5)
 
 class Apple:
     def __init__(self, parent_screen):
@@ -94,7 +93,12 @@ class Game:
         sound = pygame.mixer.Sound(f"resources/{resource}")
         pygame.mixer.Sound.play(sound)
     
+    def render_background(self):
+        bg = pygame.image.load("resources/background.jpg")
+        self.surface.blit(bg, (0,0))
+
     def play(self):
+        self.render_background()
         self.snake.walk()
         self.apple.draw()
         self.display_score()
@@ -118,13 +122,14 @@ class Game:
         self.surface.blit(score, (800, 10))
 
     def show_game_over(self):
-        self.surface.fill(BACKGROUND_COLOR)
+        self.render_background()
         font = pygame.font.SysFont('arial', 30)
         line1 = font.render(f"Game is over! Your score is {self.snake.length}", True, (255, 255, 255))
         self.surface.blit(line1, (200,300))
         line2 = font.render("To play again press Enter. To exit press Escape!", True, (255, 255, 255))
         self.surface.blit(line2, (200,350))
         pygame.display.flip()
+        pygame.mixer.music.pause()
 
     def reset(self):
         self.snake = Snake(self.surface, 1)
@@ -139,6 +144,7 @@ class Game:
                     if event.key == K_ESCAPE:
                         running = False
                     if event.key == K_RETURN:
+                        pygame.mixer.music.unpause()
                         pause = False
                     if not pause:
                         if event.key == K_UP:
