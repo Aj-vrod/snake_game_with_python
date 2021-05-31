@@ -7,7 +7,7 @@ SIZE = 40
 
 class Apple:
     def __init__(self, parent_screen):
-        self.image = pygame.image.load("resources/apple.jpg").convert()
+        self.image = pygame.image.load("resources/appple.jpg").convert()
         self.parent_screen = parent_screen
         self.x = SIZE * 3
         self.y = SIZE * 3
