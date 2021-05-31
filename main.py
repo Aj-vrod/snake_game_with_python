@@ -7,7 +7,7 @@ SIZE = 40
 
 class Apple:
     def __init__(self, parent_screen):
-        self.image = pygame.image.load("resources/appple.jpg").convert()
+        self.image = pygame.image.load("resources/apple.png").convert()
         self.parent_screen = parent_screen
         self.x = SIZE * 3
         self.y = SIZE * 3
@@ -93,7 +93,7 @@ class Game:
         pygame.mixer.Sound.play(sound)
     
     def render_background(self):
-        bg = pygame.image.load("resources/background.jpg")
+        bg = pygame.image.load("resources/backgroundd.jpeg")
         self.surface.blit(bg, (0,0))
 
     def play(self):
