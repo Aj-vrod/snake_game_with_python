@@ -1,8 +1,8 @@
+# Snake Game clone
+
 <a href="https://twitter.com/VarelaAmmy" target="_blank">
   <img src="https://img.shields.io/badge/Ammy's%20Twitter-Follow-blue">
 </a>
-
-# Snake Game clone
 
 ## Overview
 This project is a clone of the famous Snake Game where the snake must eat as many apples as it can without collisioning with itself or any of the walls surrounding it. I put in practice my Python3 skills and Object Oriented Programming in an exciting and interactive project, which is always in development process as there are more features to come. Pygame is the library chosen to use, given its availability and resources, and was the biggest challenge when reading documentation. As mentioned earlier, features like time limit, score tracker and better animation are still to come.
